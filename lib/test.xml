@@ -1,0 +1,61 @@
+
+<div class="bg-holder"></div>
+<div class="header-holder">
+    <div class="abs-top-left">
+        <button class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+    $text('Texts_LogYourTrainings')
+    <div class="header-caption">
+        $text('Texts_Logbook')
+    </div>
+</div>
+<div class="container-md logbook-holder">
+    <div class="logbook-list">
+        <div _repeat="Logs:Log" class="list-item ?($Log.Type === 'custom' ? 'list-item-custom' : '') card">
+            <div class="row no-gutters">
+                <div class="col item-header">
+                    <div class="item-date">
+                        format_DateTime($Log.DateTime) / format_DayOfWeek($Log.DateTime))
+                        <span _show="?($Log.Difficulty !== null)" class="pl-2 text-primary">
+                            <i class="?($Log.Difficulty >= 1 ? 'fas' : 'far') fa-star"></i>
+                            <i class="?($Log.Difficulty >= 1 ? 'fas' : 'far') fa-star"></i>
+                            <i class="?($Log.Difficulty >= 1 ? 'fas' : 'far') fa-star"></i>
+                            <i class="?($Log.Difficulty >= 1 ? 'fas' : 'far') fa-star"></i>
+                            <i class="?($Log.Difficulty >= 1 ? 'fas' : 'far') fa-star"></i>
+                        </span>
+                    </div>
+                    <div class="item-title">
+                        $Log.Title
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-dark btn-theme btn-sm"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <button class="dropdown-item">
+                            <i class="fas fa-edit pr-2"></i>
+                            Edit
+                        </button>
+                        <button _elem="Log_Delete" class="dropdown-item">
+                            <i class="fas fa-times pr-2"></i>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="item-desc">
+                $Log.Note
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-fixed logbook-holder-add">
+    <div class="container-md">
+        <button _elem="Buttons_AddEntry" class="btn btn-primary btn-theme w-100">
+            $text('Buttons_AddEntry')
+        </button>
+    </div>
+</div>

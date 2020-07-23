@@ -2,6 +2,6 @@
   "name": "ab-xml-parser",
   "version": "0.0.1",
   "dependencies": {
-    "xmldoc": "1.1.*"
+    "html-entities": "1.3.*"
   }
 }
