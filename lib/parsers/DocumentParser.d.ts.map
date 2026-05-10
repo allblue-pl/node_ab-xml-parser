@@ -1,0 +1,1 @@
+{"version":3,"file":"DocumentParser.d.ts","sourceRoot":"","sources":["../../ts-lib/parsers/DocumentParser.ts"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,gBAAgB,CAAC;AACtC,OAAO,MAAM,MAAM,cAAc,CAAC;AAMlC,MAAM,CAAC,OAAO,OAAO,cAAe,SAAQ,MAAM;gBAClC,QAAQ,EAAE,QAAQ;IAI9B,MAAM,CAAC,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,GAAG,MAAM;CAgCrD"}

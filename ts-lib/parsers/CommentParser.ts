@@ -1,23 +1,32 @@
-import Document from "../Document.js";
-import Parser from "../Parser.js";
+import Document from "../Document.ts";
+import Parser from "../Parser.ts";
+
 export default class CommentParser extends Parser {
-    static IsStart(content, i) {
+    static IsStart(content: string, i: number): number {
         if (content.length >= i + 4) {
             if (content.substring(i, i + 4) === '<!--')
                 return 4;
         }
+
         return 0;
     }
-    #value;
-    constructor(document) {
+
+
+    #value: string;
+
+
+    constructor(document: Document) {
         super(document);
+
         this.#value = '';
     }
-    __read(c, i, line) {
+
+    __read(c: string, i: number, line: number) {
         let content = this.document.content;
+
         if (content.length >= i + 3) {
             if (content.substring(i, i + 3) === '-->') {
-                while ([' ', "\r", "\n"].includes(this.#value[this.#value.length - 1]))
+                while([' ', "\r", "\n"].includes(this.#value[this.#value.length - 1]))
                     this.#value = this.#value.substring(0, this.#value.length - 1);
                 if (this.#value !== '') {
                     this.document.addNode({
@@ -25,15 +34,21 @@ export default class CommentParser extends Parser {
                         value: this.#value,
                     });
                 }
+
                 this.finish();
                 return 3;
             }
         }
+
         if (this.#value === '') {
             if (c === ' ' || c === "\r" || c === "\n")
                 return 1;
         }
+
         this.#value += c;
+
+
         return 1;
     }
+
 }

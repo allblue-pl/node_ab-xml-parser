@@ -1,11 +1,7 @@
-'use strict';
-
-const
-    abXmlParser = require('./lib')
-;
+import Document from "./ts-lib/Document.ts";
 
 
-let d = new abXmlParser.Document(`
+let d = new Document(`
 <h1>
     Hello World
 </h1>
